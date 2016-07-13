@@ -31,6 +31,8 @@ namespace DayTwoHomeWork
         public double GetOrderTotalAmount()
         {
             double TotalAmount = 0;
+            
+            
             foreach(var book in _books)
             {
                 TotalAmount +=book.Price*book.Quantity;
