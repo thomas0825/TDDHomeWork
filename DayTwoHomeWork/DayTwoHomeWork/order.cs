@@ -39,14 +39,15 @@ namespace DayTwoHomeWork
                     throw new  NotImplementedException(); 
             }              
         }
-        public int GetNotExistBookName()
+        public List<string> GetNotExistBookName()
         {
+            var result = new List<string>();
             for(int i = 1   ; i < 6; i++)
             {
                 if(BooksSet.Exists(x => x.Name == i.ToString())) { }
-                else { return i; }                
+                else { result.Add(i.ToString()) ; }                
             }
-            throw new NotImplementedException();
+            return result;
         }
     } 
 
@@ -67,7 +68,7 @@ namespace DayTwoHomeWork
         private BookDiscountGroup GetABookDiscountGroupWithoutSpecialBookName(string name)
         {
             var q = (from BDG in _BookDiscountGroup
-                    where BDG.GetNotExistBookName().ToString() == name
+                    where BDG.GetNotExistBookName().Contains<string>(name)
                     select BDG).FirstOrDefault();
             if(q ==null )
             {
