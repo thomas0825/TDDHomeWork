@@ -63,5 +63,24 @@ namespace DayTwoHomeWork.Tests
             var expected = 270.0;
             expected.ToExpectedObject().ShouldEqual(acutal);
         }
+        [TestMethod()]
+        public void GetOrderTotalAmountTest_Buy_1_Book1_and_1_Book2_and_1_Book3_and_1_Book4_TotalAmount_ShouldBe_320()
+        {
+            //arrange 
+            List<Book> buyList = new List<Book>()
+            {
+                new Book(name:"1",price:100),
+                new Book(name:"2",price:100),
+                new Book(name:"3",price:100),
+                 new Book(name:"4",price:100)
+            };
+            var target = new order(buyList);
+
+            //act
+            var acutal = target.GetOrderTotalAmount();
+            //assert
+            var expected = 320.0;
+            expected.ToExpectedObject().ShouldEqual(acutal);
+        }
     }
 }
