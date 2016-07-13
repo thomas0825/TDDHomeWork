@@ -7,17 +7,18 @@ namespace DayTwoHomeWork
 {
     public class Book
     {
-        
-        public Book(string name, double price ,int quantity )
+        public string Name { get; private set; }
+        public double Price { get; private set; }
+        public int Quantity { get; private set; }
+
+        public Book(string name, double price, int quantity)
         {
             this.Name = name;
             this.Price = price;
             this.Quantity = quantity;
         }
 
-        public string Name { get; private set; }
-        public double Price { get; private set; }
-        public int Quantity { get; private set; }
+
     }
     public class order
     {
@@ -30,6 +31,10 @@ namespace DayTwoHomeWork
         public double GetOrderTotalAmount()
         {
             double TotalAmount = 0;
+            foreach(var book in _books)
+            {
+                TotalAmount +=book.Price*book.Quantity;
+            }
             return TotalAmount;
         }
 

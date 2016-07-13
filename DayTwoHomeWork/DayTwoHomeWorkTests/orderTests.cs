@@ -28,7 +28,7 @@ namespace DayTwoHomeWork.Tests
             //act
             var acutal = target.GetOrderTotalAmount();
             //assert
-            var expected = 100;
+            var expected = 100.0;
             expected.ToExpectedObject().ShouldEqual(acutal);
         }
     }
